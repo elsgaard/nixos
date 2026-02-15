@@ -48,24 +48,22 @@
       pool = {
         type = "lvm_vg";
 
-        lvs = {
-          # Leave space for swap
-          root = {
-            size = "100%FREE - 4G";
-            content = {
-              type = "filesystem";
-              format = "ext4";
-              mountpoint = "/";
-            };
-          };
+lvs = {
+  swap = {
+    size = "4G";
+    content = { type = "swap"; };
+  };
 
-          swap = {
-            size = "4G";
-            content = {
-              type = "swap";
-            };
-          };
-        };
+  root = {
+    size = "100%FREE";
+    content = {
+      type = "filesystem";
+      format = "ext4";
+      mountpoint = "/";
+    };
+  };
+};
+
       };
     };
 
