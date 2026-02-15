@@ -51,9 +51,9 @@
    services.openssh = {
      enable = true;
      settings = {
-       PermitRootLogin = "yes";
-       PasswordAuthentication = true;
-       KbdInteractiveAuthentication = true;
+       PermitRootLogin = "no";
+       PasswordAuthentication = false;
+       KbdInteractiveAuthentication = false;
      };
    };
    
