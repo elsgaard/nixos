@@ -49,13 +49,20 @@
         type = "lvm_vg";
 
         lvs = {
+          # Leave space for swap
           root = {
-            size = "100%FREE";
-
+            size = "100%FREE - 4G";
             content = {
               type = "filesystem";
               format = "ext4";
               mountpoint = "/";
+            };
+          };
+
+          swap = {
+            size = "4G";
+            content = {
+              type = "swap";
             };
           };
         };
