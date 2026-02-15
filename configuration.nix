@@ -50,7 +50,7 @@
      settings = {
        PermitRootLogin = "yes";
        PasswordAuthentication = true;
-       KbdInteractiveAuthentication = false;
+       KbdInteractiveAuthentication = true;
      };
    };
    
