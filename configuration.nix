@@ -25,7 +25,7 @@
    ];
    
    time.timeZone = "Europe/Copenhagen";
-   i18n.defaultLocale = "da_DK.UTF-8";
+   i18n.defaultLocale = "en_US.UTF-8";
    console.keyMap = "dk";
    
    boot.loader.grub.enable = true;
