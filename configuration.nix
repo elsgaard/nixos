@@ -33,8 +33,11 @@
    boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "virtio_scsi" "sd_mod" "sr_mod" "ext4" ];
    
    users.users = {
-     root.hashedPassword = "!"; # Disable root login
-     username = {
+     root = {
+       hashedPassword = "!"; # disables password login for root
+     };
+
+     admin = {
        isNormalUser = true;
        extraGroups = [ "wheel" ];
        openssh.authorizedKeys.keys = [
@@ -42,7 +45,7 @@
        ];
      };
    };
-   
+
    security.sudo.wheelNeedsPassword = false;
    
    services.openssh = {
