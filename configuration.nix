@@ -23,6 +23,7 @@ console.keyMap = "dk";
 environment.systemPackages = [
 pkgs.curl
 pkgs.gitMinimal
+pkgs.jdk25
 ];
 
 users.users.root.openssh.authorizedKeys.keys = [
