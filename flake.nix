@@ -1,16 +1,18 @@
 {
-   inputs = {
-     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
-   };
- 
-   outputs = { nixpkgs, ... }: {
-     nixosConfigurations = {
-       hetzner-x86_64 = nixpkgs.lib.nixosSystem {
-         system = "x86_64-linux";
-         modules = [
-           ./configuration.nix
-         ];
-       };
-     };
-   };
- }
+inputs = {
+nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+disko.url = "github:nix-community/disko";
+disko.inputs.nixpkgs.follows = "nixpkgs";
+};
+
+outputs = { nixpkgs, disko, ... }: {
+nixosConfigurations.wolf = nixpkgs.lib.nixosSystem {
+system = "x86_64-linux";
+modules = [
+disko.nixosModules.disko
+./configuration.nix
+./disk-config.nix
+];
+};
+};
+}
